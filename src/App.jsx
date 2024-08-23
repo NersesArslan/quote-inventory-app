@@ -12,13 +12,13 @@ function App() {
   });
   
   const [quote, setQuote] = useState([])
-  // const quoteDisplay = quote.map((quotes) => 
+  const quoteDisplay = quote.map((quotes) => 
 
-  //  <div>
-  //    <p key={quotes}>{quotes.quote}</p>
-  //    <p>{quotes.author}</p>
-  //  </div>
-  // )
+   <div className="quoteBlock">
+     <p key={quotes} className="author">{quotes.quote}</p>
+     <p className="author">{quotes.author}, {quotes.book}</p>
+   </div>
+  )
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -56,7 +56,7 @@ console.log(quote);
       <button type="submit" onClick={onSubmit}>Submit</button>
      </form>
      
-     
+     <p>{quoteDisplay}</p>
     </>
   )
 
