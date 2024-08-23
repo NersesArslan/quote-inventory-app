@@ -2,7 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Greeting from './components/greeting'
+import { v4 as uuidv4 } from 'uuid';
+import Quote from './assets/Quote'
+
 function App() {
 
   const [formData, setFormData] = useState({
@@ -10,14 +12,14 @@ function App() {
     book: '',
     quote: ''
   });
-  
+  const onEdit = (e) => {
+    e.preventDefault()
+    setFormData(quote)
+  }
   const [quote, setQuote] = useState([])
   const quoteDisplay = quote.map((quotes) => 
 
-   <div className="quoteBlock">
-     <p key={quotes} className="author">{quotes.quote}</p>
-     <p className="author">{quotes.author}, {quotes.book}</p>
-   </div>
+   <Quote quote={quotes.quote} keyValue={uuid()}/>
   )
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +29,7 @@ function App() {
     }));
   };
 
+  
   const onSubmit = (e) => {
     e.preventDefault()
     setQuote(prevState =>([
