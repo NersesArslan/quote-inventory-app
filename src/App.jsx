@@ -12,14 +12,11 @@ function App() {
     book: '',
     quote: ''
   });
-  const onEdit = (e) => {
-    e.preventDefault()
-    setFormData(quote)
-  }
+
   const [quote, setQuote] = useState([])
   const quoteDisplay = quote.map((quotes) => 
 
-   <Quote quote={quotes.quote} keyValue={uuid()}/>
+   <Quote quote={quotes.quote} author={quotes.author} book={quotes.book} keyValue={uuidv4()}  />
   )
   const handleChange = (e) => {
     const { name, value } = e.target;
