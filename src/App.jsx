@@ -13,11 +13,28 @@ function App() {
     quote: ''
   });
 
-  const [quote, setQuote] = useState([])
-  const quoteDisplay = quote.map((quotes) => 
+  const [quote, setQuote] = useState([{
+    author: 'W. G. Sebald',
+    book: 'Austerlitz',
+    quote: 'No sooner did I become acquainted with someone than I feared I had come too close, no sooner did someone turn towards me than I began to retreat. In the end I was linked to other people only by certain forms of courtesy which I took to extremes and which I know today, said Austerliz, I observed not so much for the sake of their recipients as because they allowed me to ignore the fact that my life has always, for as far back as I can remember, been clouded by an unrelieved despair.'
+  },{
+    author: 'Gabriel Garcia Marquez',
+    book: 'One Hundred Years of Solitude',
+    quote: 'Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.'
+  },{
+    author: 'Franz Kafka',
+    book: 'The Metamorphosis',
+    quote: 'One morning, as Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.'
+  }])
 
-   <Quote quote={quotes.quote} author={quotes.author} book={quotes.book} keyValue={uuidv4()}  />
+ const [quoteID, seQuoteID] = useState([
+  quote.map
+ ])
+  const quoteDisplay = quote.map((quotes, index) => 
+
+   <Quote quote={quotes.quote} author={quotes.author} book={quotes.book} keyValue={index} onClick={() => handleDelete(index)} />
   )
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -25,7 +42,11 @@ function App() {
       [name]: value,
     }));
   };
-
+  const handleDelete = (index) => {
+    const newQuote = [...quote]
+    newQuote.splice(index, 1)
+    setQuote(newQuote)
+  }
   
   const onSubmit = (e) => {
     e.preventDefault()

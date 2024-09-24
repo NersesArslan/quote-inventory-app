@@ -55,6 +55,7 @@ textarea {
 input[type="text"] {
   font-size: 25px;
 }
+
 textarea[type="text"] {
   font-size: 25px;
 }
@@ -66,4 +67,8 @@ textarea[type="text"] {
   flex-direction: column;
   text-align: left;
   font-size: 28px;
+}
+textarea {
+  width: 1000px;
+  height: 200px;
 }
